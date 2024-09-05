@@ -1,0 +1,44 @@
+@use '../../../styles/' as *;
+
+.counter {
+    &.box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-columns: auto;
+        width: 100%;
+
+        @media screen and (max-width: $large) and (orientation: portrait) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    }
+
+    &.element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media screen and (max-width: $large) {
+            max-width: 50vw;
+        }
+
+        &-name {
+            font-size: 2em;
+            color: rgb(var(--remark_color));
+        }
+
+        &-number {
+            font-size: 3em;
+            @media screen and (max-width: $large) {
+                font-size: 2em;
+            }
+        }
+
+        &-description {
+            text-align: center;
+        }
+    }
+
+}
