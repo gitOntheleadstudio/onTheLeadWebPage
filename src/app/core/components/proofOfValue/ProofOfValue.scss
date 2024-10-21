@@ -1,0 +1,55 @@
+.fillColor {
+    padding: 3em;
+}
+.client{
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+    img{
+        max-width: 100%;
+        max-height: 110%;
+    }
+}
+.poftitle{
+    text-align: center;
+    margin: 20px 0;
+}
+.sliderProofOfValue {
+    margin: 0 10px;
+    background-color: #CBCBCB;
+    border-radius: 20px;
+    overflow: hidden;
+
+    .slick-arrow {
+        &::before {
+            color: var(--foreground);
+            //font-size: 40px; //tamaño de los botones
+        }
+
+        &.slick-next {
+            right: 45px; //por defecto
+        }
+
+        &.slick-prev {
+            left: 45px;
+
+        }
+    }
+
+    .slick-dots {
+        .slick-active {
+            button::before {
+                color: var(--foreground);
+                opacity: 1;
+            }
+        }
+
+        li {
+            button::before {
+                color: var(--foreground);
+                opacity: .5;
+            }
+
+        }
+    }
+}

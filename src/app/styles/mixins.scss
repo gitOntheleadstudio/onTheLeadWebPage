@@ -24,7 +24,7 @@
 
 @mixin theme-updater() {
   @each $name, $theme-name in $themes {
-    .theme-#{$name} & {
+    .#{$name} & {
       @each $color-name, $prop in $theme-name {
         @if length($prop) > 3{
             @each $number, $color in $prop {

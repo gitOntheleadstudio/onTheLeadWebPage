@@ -4,7 +4,7 @@
 @import "tailwindcss/utilities";
 
 body {
-    background-color: rgb(var(--background_color));
+    background-color: var(--background);
     @include theme-updater();
 }
 
@@ -28,7 +28,7 @@ a {
 }
 
 a[aria-current] {
-    color: red;
+    color: var(--focus);
 }
 
 button {
@@ -45,91 +45,36 @@ button {
     }
 }
 
-input {
-    -webkit-transition: 1s;
-    /* Safari */
-    transition: 1s;
+h1 {
+    color: var(--foreground);
+    font-family: $primary-font-family;
+    //font-weight: 700;
+    font-size: 3rem;
 }
-
-$type: "text", "email", "password";
-
-@each $t in $type {
-    input[type="#{$t}"] {
-        background-color: unset;
-        border: 0px solid rgb(var(--inputs_colors));
-        border-bottom: 1px solid rgb(var(--inputs_colors));
-        padding-left: 3%;
-        color: rgb(var(--remark_color));
-    }
-
-    input[type="#{$t}"]:hover {
-        border-bottom: 1px solid rgb(var(--remark_color));
-
-        &::placeholder {
-            color: rgb(var(--remark_color));
-            opacity: 1;
-        }
-    }
-
-    input[type="#{$t}"]::placeholder {
-        color: rgb(var(--inputs_colors));
-        opacity: 0.5;
-    }
-
-    input[type="#{$t}"]:focus {
-        border-color: rgb(var(--remark_color));
-        border-bottom: 1px solid rgb(var(--remark_color));
-        outline-width: 0px;
-
-        &::placeholder {
-            color: rgb(var(--remark_color));
-            opacity: 1;
-        }
-    }
+h2{
+    font-size: 1.8rem;
+    font-family: $primary-font-family;
 }
-
-/*
-  input[type="checkbox"] {
-    transition: all 500ms;
-    border: 1px solid rgb(var(--inputs_colors));
-    &:focus {
-      box-shadow: 0 0 1pt 3pt rgb(var(--remark_color));
-      border: 1px solid rgb(var(--remark_color));
-    }
-  }
-  input[type="checkbox"]:checked {
-    background: rgb(var(--inputs_colors));
-    border: 1px solid rgb(var(--inputs_colors));
-  }*/
-
-h1,
-h2 {
-    color: rgb(var(--primary_color));
-    font-family: $secondary-font-family;
-    font-weight: 700;
+h3{
+    font-size: 1.5rem;
+    font-family: $primary-font-family;
 }
-
-h3,
 h4,
 h5 {
-    color: rgb(var(--secondary_color));
+    color: var(--foreground);
     font-family: $secondary-font-family;
-    font-weight: 300;
+    //font-weight: 300;
 }
 
 p {
-    color: rgb(var(--text_color));
+    color: var(--foreground);
 }
 
 b {
-    color: rgb(var(--remark_color));
+    color: var(--focus);
     filter: brightness(10);
 }
 
 u {
-    color: rgb(var(--remark_color));
-}
-
-label {
-    color: rgb(var(--text_color));
+    color: var(--focus);
 }

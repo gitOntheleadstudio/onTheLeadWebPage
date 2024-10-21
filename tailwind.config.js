@@ -30,23 +30,23 @@ export default {
   plugins: [nextui({
     themes: {   //the color values must be the same of the ./scr/app/styles/variables.scss
       "modern": {
-        extend: "dark",
+        extend: "ligth",
         colors: {
           background: "#ffffff",
           foreground: "#000000",
-          focus: "#F182F6",
+          focus: "#1031db",
           primary: {
-            50: "#f3f6ef",
-            100: "#e5eadd",
-            200: "#cdd8be",
-            300: "#acbf97",
-            400: "#8ea675",
-            500: "#78925d",
-            600: "#586d43",
-            700: "#455536",
-            800: "#39452f",
-            900: "#323c2b",
-            DEFAULT: "#78925d"
+            50: "#eaf5ff",
+            100: "#d8ecff",
+            200: "#b9dbff",
+            300: "#90c0ff",
+            400: "#6499ff",
+            500: "#4072ff",
+            600: "#1f47ff",
+            700: "#1031db",
+            800: "#1433bf",
+            900: "#1a3395",
+            DEFAULT: "#1031db"
           },
         }
       }

@@ -1,0 +1,142 @@
+@use '../../../styles/' as *;
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.banner {
+    height: 92vh;
+    display: flex;
+    justify-content: start;
+    .animation3d.cover {
+        z-index: 9;
+    }
+    .animation3d::after {
+        position: absolute;
+        content: '';
+        width: 100vw;
+        height: 100px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+        bottom: 0px;
+    }
+
+    .animation3d::before {
+        position: absolute;
+        content: '';
+        width: 100vw;
+        height: 100px;
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%);
+        color: white;
+    }
+
+
+    .slider-box {
+        position: absolute;
+        width: 100vw;
+        padding: calc(5vh - 12px) 0; // el total de la pantalla 100vh - el elemento interior 90vh - el "bottom" de la leyenda entre dos 25px/2
+
+
+        //-----------Importante utilizar este CSS para el Componente Slider-----------
+        .slider {
+            margin-left: 45px;
+            margin-right: 45px;
+
+            .slick-arrow {
+                z-index: 11;
+                &::before {
+                    color: var(--foreground);
+                    font-size: 40px; //tamaño de los botones
+                }
+
+                &.slick-next {
+                    //right: -25px; //por defecto
+                }
+
+                &.slick-prev {
+                    left: -45px;
+
+                }
+            }
+
+            .slick-dots {
+                .slick-active {
+                    button::before {
+                        color: var(--foreground);
+                        opacity: 1;
+                    }
+                }
+
+                li {
+                    button::before {
+                        color: var(--foreground);
+                        opacity: .5;
+                    }
+
+                }
+            }
+        }
+
+        .slider.hidden {
+            .stick-list {
+                z-index: -10;
+            }
+        }
+    }
+
+    .slider-element {
+        overflow: hidden;
+        height: 82vh;
+        border-radius: 10px;
+
+        img {
+            min-height: 100%;
+            min-width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .banner-content {
+        width: 50vw;
+        padding-left: 15vw;
+        padding-top: 10vh;
+        margin-left: 45px;
+        text-align: start;
+
+        &.cover {
+            z-index: 10;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+
+            h1 {
+                animation: appear 1s;
+                font-weight: bold;
+            }
+            h2 {
+                font-weight: bold;
+            }
+
+            .button {
+                font-size: 1.2rem;
+                font-family: $secondary-font-family;
+                animation: appear 5s;
+                border-radius: 20px;
+            }
+
+        }
+    }
+}
