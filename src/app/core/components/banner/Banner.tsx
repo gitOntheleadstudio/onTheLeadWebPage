@@ -7,7 +7,7 @@ import Slider from "react-slick";
 import { useState } from 'react';
 export default function Banner(props: { _: { title: string, subtitle1: string, subtitle2: string, subtitle3: string, buttonText: string, pictures: string[] } }) {
     const _ = props._
-    const splineUrl = "https://prod.spline.design/qC2fqnUhSpMpkCda/scene.splinecode"
+    const splineUrl = "https://prod.spline.design/0aNQHrsDfnMIUlLS/scene.splinecode"
     const [activeSlide, setActiveSlide] = useState(0)
     const slideSettings = {
         className: "slider",
@@ -15,7 +15,8 @@ export default function Banner(props: { _: { title: string, subtitle1: string, s
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        beforeChange: (current: number, next: number) => {
+        dots: true,
+        beforeChange: (_: number, next: number) => {
             setActiveSlide(next);
         },
     };
@@ -25,11 +26,11 @@ export default function Banner(props: { _: { title: string, subtitle1: string, s
                 <div className={activeSlide === 0 ? 'banner-content cover' : 'banner-content'}>
                     <div className='text'>
                         <h1>{_.title}</h1>
-                        <h2>{_.subtitle1}
-                            <span className='text-focus'>&nbsp;{_.subtitle2}&nbsp;</span>
-                            {_.subtitle3}</h2>
+                        <h1>{_.subtitle1}
+                            <span className='text-focus'> {_.subtitle2} </span>
+                            {_.subtitle3}</h1>
                         <h3>Somos una agencia
-                            <span className='text-focus'>&nbsp;digital de Marketing Growth&nbsp;</span>
+                            <span className='text-focus'> digital de Marketing Growth </span>
                             enfocada en generación de leads y conversiones
                         </h3>
                         <Button color='primary' size='lg' className='button text-background'>{_.buttonText}</Button>

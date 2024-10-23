@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@nextui-org/react": "^2.4.6",
     "@splinetool/react-spline": "^4.0.0",
+    "firebase-tools": "^13.22.1",
     "framer-motion": "^11.5.4",
     "lottie-react": "^2.4.0",
     "next-themes": "^0.3.0",

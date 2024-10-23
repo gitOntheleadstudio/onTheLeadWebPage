@@ -3,4 +3,8 @@
     display: flex;
     justify-content: end;
     padding: 0 10px;
+    background-color: var(--focus);
+    p {
+        color: var(--background);
+    }
 }

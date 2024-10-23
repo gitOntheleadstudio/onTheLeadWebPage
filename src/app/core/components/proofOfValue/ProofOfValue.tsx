@@ -2,7 +2,7 @@ import './ProofOfValue.scss'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { useEffect, useState } from 'react';
+//import React, { useEffect, useState } from 'react';
 
 export default function ProofOfValue(props: {
     _: {
@@ -11,8 +11,8 @@ export default function ProofOfValue(props: {
     }
 }) {
     const _ = props._
-    const imgRef = React.useRef<HTMLImageElement>(null);
-    const [bkgColor, setBkgColor] = useState("rgb(0,0,0)")
+    
+    
     const slideSettings = {
         className: "sliderProofOfValue",
         infinite: true,
@@ -24,6 +24,9 @@ export default function ProofOfValue(props: {
         cssEase: "linear",
         arrows: false,
     };
+    /*
+    const imgRef = React.useRef<HTMLImageElement>(null);
+    const [bkgColor, setBkgColor] = useState("rgb(0,0,0)")
     const readImageData = React.useCallback(() => {
         const img = imgRef.current;
         if (!img?.width) {
@@ -55,7 +58,7 @@ export default function ProofOfValue(props: {
         console.log(`${rgb.r},${rgb.g},${rgb.b}`)
         setBkgColor(`rgb(${rgb.r},${rgb.g},${rgb.b})`)
     }, []);
-    /**
+    
      * <div className="fillColor" style={{ backgroundColor: bkgColor }}>
                 <img ref={imgRef} crossOrigin="anonymous" onLoad={readImageData} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQggHMvwAwUGdfF8jdTUXwz2YhSBhZkJTjSnBdWCkXLKvnT6SI4uIuJTUWkExVR__AWIqI&usqp=CAU"  />
             </div>

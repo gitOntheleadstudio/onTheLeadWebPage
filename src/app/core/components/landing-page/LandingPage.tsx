@@ -4,21 +4,20 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProofOfValue from '../proofOfValue/ProofOfValue';
 import barChart from '../../../../assets/barChart.json';
-import pieChart from '../../../../assets/PieChart.json';
 import funnelChart from '../../../../assets/funnelChart.json';
 import Services from '../services/Services';
 import NavbarC from '../navbarC/NavbarC';
-import Reviews from '../reviews/Reviews';
 import Formulary from '../formulary/Formulary';
 import Footer from '../footer/Footer';
 import Credits from '../credits/Credits';
+import Benefits from '../benefits/Benefits';
 function LandingPage() {
   const banner = {
     title: "¿Harto de promesas vacias?",
     subtitle1: "Hablemos de",
     subtitle2: "marketing",
     subtitle3: "digital en serio.",
-    buttonText: "COMIENZA",
+    buttonText: "DESCUBRELO AQUÍ",
     pictures: [
       'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
       'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
@@ -38,12 +37,11 @@ function LandingPage() {
     ]
   }
   const services = {
-    title: "Servicios que impulsan el",
-    titleFocus: "crecimiento digital de tu negocio",
+    title: "Digitalizate. Crece",
     slider: [
       {
         title: "Paid Media",
-        desc: "Aumenta tus clientes potenciales, reduce tus costos y logra un mayor retorno de la inversión.",
+        desc: "Diseñamos y construimos sitios web impactantes que potencian tu marca y maximizan la experiencia del usuario.",
         video: "https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4"
       },
       {
@@ -83,39 +81,64 @@ function LandingPage() {
       }
     ]
   }
-  const reviews = {
-    title: "Los  hablan por nosotros",
-    titleFocus: "resultados",
+  const formulary = {
+    title: "¡Quiero que me contacte un ejecutivo!",
     reviews: [
       {
-        name:"NextUI",
-        web:"nextui.org",
-        logo: "https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp",
-        text: "Excelente servicio, velocidad y eficiencia. Excelente trabajar con ellos."
+        name: "Enrique Moris1",
+        role: "CCO de Tradeando",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
+        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
       },
       {
-        name:"NextUI",
-        web:"nextui.org",
-        logo: "https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp",
-        text: "Excelente servicio, velocidad y eficiencia. Excelente trabajar con ellos."
+        name: "Enrique Moris2",
+        role: "CCO de Tradeando",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
+        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
       },
       {
-        name:"NextUI",
-        web:"nextui.org",
-        logo: "https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp",
-        text: "Excelente servicio, velocidad y eficiencia. Excelente trabajar con ellos."
+        name: "Enrique Moris3",
+        role: "CCO de Tradeando",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
+        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
       },
       {
-        name:"NextUI",
-        web:"nextui.org",
-        logo: "https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp",
-        text: "Excelente servicio, velocidad y eficiencia. Excelente trabajar con ellos."
+        name: "Enrique Moris4",
+        role: "CCO de Tradeando",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
+        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
       },
       {
-        name:"NextUI",
-        web:"nextui.org",
-        logo: "https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp",
-        text: "Excelente servicio, velocidad y eficiencia. Excelente trabajar con ellos."
+        name: "Enrique Moris5",
+        role: "CCO de Tradeando",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
+        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
+      },
+      {
+        name: "Enrique Moris6",
+        role: "CCO de Tradeando",
+        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
+        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
+      },
+    ]
+  }
+  const benefits = {
+    title: "Tus éxitos. Nuestro Objetivo.",
+    slider: [
+      {
+        title: 'Resultados que inspiran',
+        text: 'Aumenta tus clientes potenciales (leads), reduce tus costos y logra un mayor retorno de la inversión (ROI)',
+        video: 'https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4'
+      },
+      {
+        title: 'Resultados que inspiran',
+        text: 'Aumenta tus clientes potenciales (leads), reduce tus costos y logra un mayor retorno de la inversión (ROI)',
+        video: 'https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4'
+      },
+      {
+        title: 'Resultados que inspiran',
+        text: 'Aumenta tus clientes potenciales (leads), reduce tus costos y logra un mayor retorno de la inversión (ROI)',
+        video: 'https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4'
       }
     ]
   }
@@ -126,8 +149,8 @@ function LandingPage() {
       <Banner _={banner}></Banner>
       <ProofOfValue _={proofOfValue}></ProofOfValue>
       <Services _={services}></Services>
-      <Reviews _={reviews}></Reviews>
-      <Formulary></Formulary>
+      <Benefits _={benefits}></Benefits>
+      <Formulary _={formulary}></Formulary>
       <Footer></Footer>
       <Credits></Credits>
     </div>

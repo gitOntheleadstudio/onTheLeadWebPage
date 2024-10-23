@@ -1,12 +1,8 @@
 import './Services.scss'
 import { useEffect, useRef, useState } from 'react'
-import { AiFillCamera, AiFillFacebook, AiOutlineCode, AiOutlineDollarCircle } from 'react-icons/ai'
-import Counters from '../../../shared/components/counters/Counters'
-import { Button } from '@nextui-org/react'
 export default function Services(props: {
   _: {
     title: string,
-    titleFocus: string,
     slider: { title: string, desc: string, video: string }[]
     counters: {
       name: string,
@@ -27,7 +23,7 @@ export default function Services(props: {
   }, [service])
   return (
     <section className="services">
-      <h1>{_.title} <span className='text-focus'>{_.titleFocus}</span></h1>
+      <h1>{_.title} </h1>
       <div className="serviceButtons">
         {_.slider.map((e, i) => {
           return (
@@ -38,9 +34,7 @@ export default function Services(props: {
       </div>
       <div className="content">
         <div className='text'>
-          <h2>{_.slider[service].title}</h2>
           <h3>{_.slider[service].desc}</h3>
-          <Button radius='full'>Más Información</Button>
         </div>
         <div className="video-box">
           <video ref={videoRef} autoPlay muted loop>

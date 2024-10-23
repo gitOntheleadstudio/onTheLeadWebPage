@@ -58,10 +58,6 @@
                     font-size: 40px; //tamaño de los botones
                 }
 
-                &.slick-next {
-                    //right: -25px; //por defecto
-                }
-
                 &.slick-prev {
                     left: -45px;
 
@@ -69,6 +65,7 @@
             }
 
             .slick-dots {
+                z-index: 11;
                 .slick-active {
                     button::before {
                         color: var(--foreground);
@@ -106,7 +103,7 @@
     }
 
     .banner-content {
-        width: 50vw;
+        width: 60vw;
         padding-left: 15vw;
         padding-top: 10vh;
         margin-left: 45px;
@@ -126,14 +123,14 @@
                 animation: appear 1s;
                 font-weight: bold;
             }
-            h2 {
-                font-weight: bold;
+            h3 {
+                animation: appear 2s;
             }
 
             .button {
                 font-size: 1.2rem;
                 font-family: $secondary-font-family;
-                animation: appear 5s;
+                animation: appear 4s;
                 border-radius: 20px;
             }
 
