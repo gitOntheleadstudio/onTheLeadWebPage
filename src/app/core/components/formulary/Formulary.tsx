@@ -22,7 +22,7 @@ export default function Formulary(props: {
     slidesToScroll: 1
   };
   return (
-    <div className="formulary">
+    <section id="formulary" className="formulary">
       <div className="description">
         <Slider {...slideSettings}>
           {_.reviews.map((e, i, arr) => {
@@ -81,6 +81,6 @@ export default function Formulary(props: {
         </div>
         <Button className="bg-focus text-white" radius="full" fullWidth>ENVIAR</Button>
       </div>
-    </div>
+    </section>
   )
 }

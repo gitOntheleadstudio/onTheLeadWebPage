@@ -21,7 +21,7 @@ export default function Benefits(props: {
         dots: true
     };
     return (
-        <div className='benefits'>
+        <div id='benefits' className='benefits'>
             <h1>{_.title}</h1>
             <Slider {...slideSettings}>
                 {_.slider.map((e, i) => {

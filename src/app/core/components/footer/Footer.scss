@@ -1,16 +1,24 @@
 .footer {
+    height: 50vh;
 }
 
 .footer-bkg {
-    -webkit-mask-image: url('./footer.svg');
-    mask-image: url('./footer.svg')exclude;
-    mask-size: cover;
-    mask-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
     position: relative;
-    
+    height: 100%;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        path {
+            height: 100%;
+
+        }
+    }
+
 }
+
 .footer-content {
     height: calc(100% - 10vh);
     width: 100%;
@@ -20,6 +28,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .title {
         flex: 1;
         height: 100%;
@@ -29,15 +38,19 @@
         flex-direction: column;
         align-items: center;
         gap: 10px;
-        h1,h3 {
+
+        h1,
+        h3 {
             color: var(--background);
         }
+
         button {
-            h2{
+            h2 {
                 color: var(--focus);
             }
         }
     }
+
     .footer-info {
         margin-top: 20px;
         height: 100%;
@@ -47,10 +60,11 @@
         align-items: center;
         gap: 10px;
         color: var(--background);
+
         svg {
             font-size: 4rem;
         }
-        p {
+        .contact {
             display: flex;
             align-items: center;
             border: 1px solid white;
@@ -58,9 +72,11 @@
             height: 4rem;
             padding: 0 5px;
             gap: 5px;
-            color: var(--background);
-            svg {
-                font-size: 2rem;
+            p {
+                color: var(--background);
+                svg {
+                    font-size: 2rem;
+                }
             }
         }
     }

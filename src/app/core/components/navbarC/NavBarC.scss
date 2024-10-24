@@ -1,0 +1,19 @@
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    font-weight: bold;
+    span {
+        font-weight: 200;
+        font-size: 3.5rem;
+    }
+    
+}
+.sublogo {
+    padding-left: 5px;
+}
+
+li[data-active=true]{
+    a {
+        color: var(--focus);
+    }
+}

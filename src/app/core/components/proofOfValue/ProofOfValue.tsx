@@ -64,7 +64,7 @@ export default function ProofOfValue(props: {
             </div>
      */
     return (
-        <section>
+        <section id='pof' className='pof'>
             <h1 className='poftitle'>{_.title}</h1>
             <Slider {...slideSettings}>
                 {_.clientsLogos.map((e, i) => {

@@ -22,7 +22,7 @@ export default function Services(props: {
     videoRef.current?.load()
   }, [service])
   return (
-    <section className="services">
+    <section id='services' className="services">
       <h1>{_.title} </h1>
       <div className="serviceButtons">
         {_.slider.map((e, i) => {

@@ -16,8 +16,8 @@ export default function Footer() {
                     <div className="footer-info">
                         <a href=""><FaInstagram /></a>
                         <a href=""><FaLinkedin /></a>
-                        <p><FaWhatsapp />+51 983 844 560</p>
-                        <p><IoMailOutline />sales@ontheleadstudio.com</p>
+                        <div className="contact"><FaWhatsapp /><p>+51&nbsp;983&nbsp;844&nbsp;560</p></div>
+                        <div className="contact"><IoMailOutline /><p>sales@ontheleadstudio.com</p></div>
                     </div>
                 </div>
             </div>
