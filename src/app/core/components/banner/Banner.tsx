@@ -5,9 +5,17 @@ import "slick-carousel/slick/slick-theme.css";
 import { Button, Link } from '@nextui-org/react'
 import Slider from "react-slick";
 import { useState } from 'react';
-export default function Banner(props: { _: { title: string, subtitle1: string, subtitle2: string, subtitle3: string, buttonText: string, pictures: string[] } }) {
-    const _ = props._
-    const splineUrl = "https://prod.spline.design/Htyq-50kpDB1DI-8/scene.splinecode"
+import Utils from '../../Utils/Utils';
+export default function Banner(_: {
+    title: string,
+    subtitle1: string,
+    subtitle2: string,
+    buttonText: string,
+    buttonUrl: string,
+    pictures: string[]
+    splineUrl: string
+}) {
+    var { title, subtitle1, subtitle2, pictures, buttonText,  splineUrl, buttonUrl} = _
     const [activeSlide, setActiveSlide] = useState(0)
     const slideSettings = {
         className: "slider",
@@ -21,27 +29,22 @@ export default function Banner(props: { _: { title: string, subtitle1: string, s
         },
     };
     return (
-        <section id='banner' className='banner'>
+        <div className='banner'>
             <div className={activeSlide === 0 ? 'banner-content cover' : 'banner-content'}>
                 <div className='text'>
-                    <h1>{_.title}</h1>
-                    <h1>{_.subtitle1}
-                        <span className='text-focus'> {_.subtitle2} </span>
-                        {_.subtitle3}</h1>
-                    <h3>Somos una agencia
-                        <span className='text-focus'> digital de Marketing Growth </span>
-                        enfocada en generación de leads y conversiones
-                    </h3>
-                    <Button as={Link} color='primary' href='#formulary' className='button text-background'>{_.buttonText}</Button>
+                    <h1>{Utils.markdownConversion(title)}</h1>
+                    <h1>{Utils.markdownConversion(subtitle1)}</h1>
+                    <h3>{Utils.markdownConversion(subtitle2)}</h3>
+                    <Button as={Link} color='primary' href={buttonUrl} className='button text-background'>{buttonText}</Button>
                 </div>
             </div>
             <Spline className={activeSlide === 0 ? 'animation3d cover' : 'animation3d'} style={{ height: "92vh", position: "absolute", display: "block" }} scene={splineUrl} />
             <div className="slider-box">
                 <Slider {...slideSettings}>
-                    {_.pictures.map((e, i) => {
+                    {pictures.map((e, i) => {
                         if (i === 0) {
                             return (
-                                <div key={"slide-content" + i} className='slider-element'></div>
+                                <div key={"slide-contentini" + i} className='slider-element'></div>
                             )
                         } else {
                             return (
@@ -53,7 +56,7 @@ export default function Banner(props: { _: { title: string, subtitle1: string, s
                     })}
                 </Slider>
             </div>
-        </section>
+        </div>
     )
 }
 

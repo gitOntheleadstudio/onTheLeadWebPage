@@ -54,14 +54,23 @@ h1 {
     font-family: $primary-font-family;
     font-weight: bold;
     font-size: 3rem;
+    @media (max-width: $large) {
+        font-size: 1.8rem;
+    }
 }
 h2{
     font-size: 1.8rem;
     font-family: $primary-font-family;
+    @media (max-width: $large) {
+        font-size: 1.5rem;
+    }
 }
 h3{
     font-size: 1.5rem;
     font-family: $primary-font-family;
+    @media (max-width: $large) {
+        font-size: 1rem;
+    }
 }
 h4,
 h5 {
@@ -72,6 +81,9 @@ h5 {
 
 p {
     color: var(--foreground);
+    @media (max-width: $large) {
+        font-size: .8rem;
+    }
 }
 
 b {

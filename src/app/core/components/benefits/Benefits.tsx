@@ -1,17 +1,15 @@
 import Slider from 'react-slick'
 import './Benefits.scss'
-export default function Benefits(props: {
-    _: {
+export default function Benefits(_: {
+    title: string,
+    slider: {
         title: string,
-        slider: {
-            title: string,
-            text: string,
-            video: string
-        }[]
-    }
+        text: string,
+        video: string
+    }[]
 }
 ) {
-    const _ = props._
+    const { title, slider } = _
     const slideSettings = {
         className: "sliderBenefit",
         infinite: true,
@@ -21,10 +19,10 @@ export default function Benefits(props: {
         dots: true
     };
     return (
-        <div id='benefits' className='benefits'>
-            <h1>{_.title}</h1>
+        <div className='benefits section'>
+            <h1>{title}</h1>
             <Slider {...slideSettings}>
-                {_.slider.map((e, i) => {
+                {slider.map((e, i) => {
                     return (
                         <div key={`benefit-${i}`} className="benefit">
                             <div className="content">
@@ -33,7 +31,7 @@ export default function Benefits(props: {
                                     <p>{e.text}</p>
                                 </div>
                                 <div className="video">
-                                    <video autoPlay muted loop>
+                                    <video autoPlay playsInline muted loop>
                                         <source src={e.video} type='video/mp4' />
                                     </video>
                                 </div>

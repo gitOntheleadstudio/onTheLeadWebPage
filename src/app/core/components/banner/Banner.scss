@@ -66,6 +66,7 @@
 
             .slick-dots {
                 z-index: 11;
+                bottom: 7px;
                 .slick-active {
                     button::before {
                         color: var(--foreground);
@@ -108,6 +109,14 @@
         padding-top: 10vh;
         margin-left: 45px;
         text-align: start;
+        @media (max-width: $large) {                                                        //media
+            padding: 10px;
+            display: flex;
+        }
+        @media (orientation: portrait) and (max-width: $medium) {                          //media
+            width: 100vw;
+            display: block;
+        }
 
         &.cover {
             z-index: 10;

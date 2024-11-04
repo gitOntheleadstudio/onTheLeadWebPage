@@ -1,8 +1,41 @@
+@use '../../../styles/' as *;
 @keyframes ping1 {
     from {
         transform: scale(1);
     }
+
     to {
         transform: scale(1.5);
+    }
+}
+
+.landing {
+    .wsp {
+        position: fixed;
+        z-index: 50;
+        right: 20px;
+        bottom: 20px;
+
+        button {
+            background-color: var(--background);
+            border-radius: 100%;
+            padding: 15px;
+            box-shadow: 0px 0px 1px black;
+            svg {
+                color: var(--focus);
+                font-size: 4rem;
+            }
+        }
+    }
+}
+
+.formulary {
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+    @media (max-width: $large) {                                                        //media
+        flex-direction: column;
     }
 }

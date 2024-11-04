@@ -3,155 +3,76 @@ import './LandingPage.scss'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProofOfValue from '../proofOfValue/ProofOfValue';
-import barChart from '../../../../assets/barChart.json';
-import funnelChart from '../../../../assets/funnelChart.json';
 import Services from '../services/Services';
 import NavbarC from '../navbarC/NavbarC';
 import Formulary from '../formulary/Formulary';
 import Footer from '../footer/Footer';
 import Credits from '../credits/Credits';
 import Benefits from '../benefits/Benefits';
+import { FaWhatsapp } from 'react-icons/fa6';
+import db from '../../routers/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { ComponentProps, useEffect, useState } from 'react';
+import { bannerConv, benefitsConv, FooterConv, FormularyConv, iPages, NavbarConv, PofConv, ServicesConv } from '../../Utils/Interfaces';
+import Utils from '../../Utils/Utils';
+import Reviews from '../reviews/Reviews';
+
 function LandingPage() {
-  const banner = {
-    title: "¿Harto de promesas vacias?",
-    subtitle1: "Hablemos de",
-    subtitle2: "marketing",
-    subtitle3: "digital en serio.",
-    buttonText: "DESCUBRELO AQUÍ",
-    pictures: [
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp'
-    ]
-  }
-  const proofOfValue = {
-    title: 'Marcas con las que hemos trabajado',
-    clientsLogos: [
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp',
-      'https://purina.com.pe/sites/default/files/styles/webp/public/2022-10/Que_debes_saber_antes_de_adoptar_un_gatito.jpg.webp?itok=N2sS0lfp'
-    ]
-  }
-  const services = {
-    title: "Digitalizate. Crece",
-    slider: [
-      {
-        title: "Paid Media",
-        desc: "Diseñamos y construimos sitios web impactantes que potencian tu marca y maximizan la experiencia del usuario.",
-        video: "https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4"
-      },
-      {
-        title: "Social Media",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-        video: "https://videos.pexels.com/video-files/7989417/7989417-hd_1080_1920_25fps.mp4"
-      },
-      {
-        title: "Cobertura Audiovisual",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-        video: "https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4"
-      },
-      {
-        title: "Desarrollo web UX/UI",
-        desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore",
-        video: "https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4"
-      },
-    ],
-    counters: [
-      {
-        name: "Seguidores",
-        desc: "",
-        start: 0,
-        end: 12,
-        prefix: "+",
-        sufix: ".8%",
-        animationData: funnelChart
-      },
-      {
-        name: "Ventas online",
-        desc: "",
-        start: 0,
-        end: 500,
-        prefix: "+",
-        sufix: "",
-        animationData: barChart
-      }
-    ]
-  }
-  const formulary = {
-    title: "¡Quiero que me contacte un ejecutivo!",
-    reviews: [
-      {
-        name: "Enrique Moris1",
-        role: "CCO de Tradeando",
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
-        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
-      },
-      {
-        name: "Enrique Moris2",
-        role: "CCO de Tradeando",
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
-        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
-      },
-      {
-        name: "Enrique Moris3",
-        role: "CCO de Tradeando",
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
-        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
-      },
-      {
-        name: "Enrique Moris4",
-        role: "CCO de Tradeando",
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
-        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
-      },
-      {
-        name: "Enrique Moris5",
-        role: "CCO de Tradeando",
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
-        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
-      },
-      {
-        name: "Enrique Moris6",
-        role: "CCO de Tradeando",
-        avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6-zf8Ix7KbWz3bGEdhuXxmKdni01fwZPx7_0HT1Vyo2YPcv8Q",
-        text: "Para mí, David es el número 1 en España en sistemas de venta automatizados. Cualquier proyecto que quiera llegar al éxito necesita contar con una persona como él."
-      },
-    ]
-  }
-  const benefits = {
-    title: "Tus éxitos. Nuestro Objetivo.",
-    slider: [
-      {
-        title: 'Resultados que inspiran',
-        text: 'Aumenta tus clientes potenciales (leads), reduce tus costos y logra un mayor retorno de la inversión (ROI)',
-        video: 'https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4'
-      },
-      {
-        title: 'Resultados que inspiran',
-        text: 'Aumenta tus clientes potenciales (leads), reduce tus costos y logra un mayor retorno de la inversión (ROI)',
-        video: 'https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4'
-      },
-      {
-        title: 'Resultados que inspiran',
-        text: 'Aumenta tus clientes potenciales (leads), reduce tus costos y logra un mayor retorno de la inversión (ROI)',
-        video: 'https://videos.pexels.com/video-files/7989674/7989674-hd_1920_1080_25fps.mp4'
-      }
-    ]
-  }
+  const q = collection(db, "pages")
+  const [loaded, setLoaded] = useState(false)
+  const [navbar, setNavbar] = useState<ComponentProps<typeof NavbarC>>()
+  const [banner, setBanner] = useState<ComponentProps<typeof Banner>>()
+  const [pof, setPof] = useState<ComponentProps<typeof ProofOfValue>>()
+  const [benefits, setBenefits] = useState<ComponentProps<typeof Benefits>>()
+  const [services, setServices] = useState<ComponentProps<typeof Services>>()
+  const [formulary, setFormulary] = useState<ComponentProps<typeof Formulary>>()
+  const [footer, setFooter] = useState<ComponentProps<typeof Footer>>()
+
+  useEffect(() => {
+    getDocs(q).then((v) => {
+      v.forEach((e) => {
+        const res = e.data() as iPages
+        setNavbar(NavbarConv(res))
+        setBanner(bannerConv(res))
+        setPof(PofConv(res))
+        setBenefits(benefitsConv(res))
+        setServices(ServicesConv(res))
+        setFormulary(FormularyConv(res))
+        setFooter(FooterConv(res))
+
+        //console.log(setBanner(bannerConv(res)))
+      })
+    }).then(() => setLoaded(true))
+  }, [])
+
 
   return (
     <div className='landing'>
-      <NavbarC></NavbarC>
-      <Banner _={banner}></Banner>
-      <ProofOfValue _={proofOfValue}></ProofOfValue>
-      <Services _={services}></Services>
-      <Benefits _={benefits}></Benefits>
-      <Formulary _={formulary}></Formulary>
-      <Footer></Footer>
+      <div className="wsp">
+        <button>
+          <a href="https://wa.me/message/THGWETKI4R3JH1?src=qr"><FaWhatsapp /></a>
+        </button>
+      </div>
+      {Utils.asyncComponent(NavbarC, navbar, loaded)}
+      <section id='banner'>
+        {Utils.asyncComponent(Banner, banner, loaded)}
+      </section>
+      <section id='pof'>
+        {Utils.asyncComponent(ProofOfValue, pof, loaded)}
+      </section>
+      <section id='benefits'>
+        {Utils.asyncComponent(Benefits, benefits, loaded)}
+      </section>
+      <section id='services'>
+        {Utils.asyncComponent(Services, services, loaded)}
+      </section>
+      <section className='formulary'>
+        {Utils.asyncComponent(Reviews, formulary, loaded)}
+        <div id='formulary'>
+          {Utils.asyncComponent(Formulary, formulary, loaded)}
+        </div>
+      </section>
+      {Utils.asyncComponent(Footer, footer, loaded)}
       <Credits></Credits>
     </div>
   )

@@ -1,71 +1,4 @@
-.formulary {
-    height: 100vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.description {
-    width: 50vw;
-
-    .review-box {
-        padding: 30px;
-
-        .reviews {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 40px;
-            height: 100vh;
-
-            .review {
-                padding: 10px;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                width: 80%;
-                border-radius: 20px;
-                box-shadow: 2px 2px 5px black;
-                &.top {
-                    
-                }
-
-                &.bottom {
-                    align-self: flex-end;
-                }
-
-                .avatar {
-                    width: 10vw;
-                    height: 10vw;
-                    border-radius: 100%;
-                    overflow: hidden;
-
-                    img {
-                        object-fit: cover;
-                        aspect-ratio: 1/1;
-                    }
-                }
-
-                .content {
-                    width: 70%;
-                    .header {
-                        margin-bottom: 10px;
-                        display: flex;
-                        justify-content: space-between;
-                        svg {
-                            font-size: 4rem;
-                            color: var(--focus);
-                        }
-                    }
-                    .description {
-                        width: 100%;
-                    }
-                }
-
-            }
-        }
-    }
-}
+@use '../../../styles/' as *;
 
 .form {
     background-color: white;
@@ -73,6 +6,10 @@
     width: 40vw;
     border-radius: 20px;
     box-shadow: 2px 2px 5px black;
+
+    @media (max-width: $large) {                                                        //media
+        width: 90vw;
+    }
 
     h2 {
         text-align: center;
@@ -89,45 +26,6 @@
         .form-contact {
             display: flex;
             gap: 5px;
-        }
-    }
-}
-
-.sliderFormulary {
-    margin: 0 10px;
-    border-radius: 20px;
-    overflow: hidden;
-
-    .slick-arrow {
-        &::before {
-            color: var(--foreground);
-            //font-size: 40px; //tamaño de los botones
-        }
-
-        &.slick-next {
-            right: 0; //por defecto
-        }
-
-        &.slick-prev {
-            left: 0px;
-
-        }
-    }
-
-    .slick-dots {
-        .slick-active {
-            button::before {
-                color: var(--foreground);
-                opacity: 1;
-            }
-        }
-
-        li {
-            button::before {
-                color: var(--foreground);
-                opacity: .5;
-            }
-
         }
     }
 }
