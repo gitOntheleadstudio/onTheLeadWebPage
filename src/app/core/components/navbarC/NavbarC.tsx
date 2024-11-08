@@ -14,7 +14,7 @@ export default function NavbarC(_: {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <Navbar isBlurred={false} onMenuOpenChange={setIsMenuOpen}>
+    <Navbar isBlurred={false} onMenuOpenChange={setIsMenuOpen} maxWidth="full" classNames={{'wrapper':'navbarc'}}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}

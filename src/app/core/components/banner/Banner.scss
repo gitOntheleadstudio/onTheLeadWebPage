@@ -18,9 +18,11 @@
     height: 92vh;
     display: flex;
     justify-content: start;
+
     .animation3d.cover {
         z-index: 9;
     }
+
     .animation3d::after {
         position: absolute;
         content: '';
@@ -53,6 +55,7 @@
 
             .slick-arrow {
                 z-index: 11;
+
                 &::before {
                     color: var(--foreground);
                     font-size: 40px; //tamaño de los botones
@@ -67,17 +70,21 @@
             .slick-dots {
                 z-index: 11;
                 bottom: 7px;
+
                 .slick-active {
                     button::before {
-                        color: var(--foreground);
+                        color: var(--focus);
                         opacity: 1;
                     }
                 }
 
                 li {
+                    margin: 0 10px;
                     button::before {
-                        color: var(--foreground);
+                        font-size: 2rem;
+                        color: var(--focus);
                         opacity: .5;
+
                     }
 
                 }
@@ -104,16 +111,20 @@
     }
 
     .banner-content {
-        width: 60vw;
-        padding-left: 15vw;
+        width: 58vw;
+        padding-left: 10vw;
         padding-top: 10vh;
         margin-left: 45px;
         text-align: start;
-        @media (max-width: $large) {                                                        //media
+
+        @media (max-width: $large) {
+            //media
             padding: 10px;
             display: flex;
         }
-        @media (orientation: portrait) and (max-width: $medium) {                          //media
+
+        @media (orientation: portrait) and (max-width: $medium) {
+            //media
             width: 100vw;
             display: block;
         }
@@ -132,6 +143,7 @@
                 animation: appear 1s;
                 font-weight: bold;
             }
+
             h3 {
                 animation: appear 2s;
             }

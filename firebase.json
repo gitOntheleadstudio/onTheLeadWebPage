@@ -14,6 +14,10 @@
       {
         "source": "/footer.svg",
         "destination": "/footer.svg"
+      },
+      {
+        "source": "/lrv.png",
+        "destination": "./lrv.png"
       }
     ]
   }

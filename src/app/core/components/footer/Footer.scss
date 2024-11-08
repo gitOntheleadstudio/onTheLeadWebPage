@@ -1,4 +1,5 @@
 @use '../../../styles/' as *;
+
 .footer {
     margin-bottom: 10vh;
 }
@@ -8,12 +9,13 @@
 
     .footer-bkg-image {
         position: absolute;
-        height: calc( 100% + 10vh );
+        height: calc(100% + 10vh);
         display: flex;
         justify-content: center;
         overflow: hidden;
+
         img {
-            height: calc( 100% + 10vh );
+            height: calc(100% + 10vh);
             width: 100%;
             object-fit: cover;
         }
@@ -31,8 +33,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 60px;
 
-    @media (max-width: $medium) {                                               //media
+    //media------------------------------------------------------------------------------------------------------------------------------------
+    @media (max-width: $medium) {
         padding: 0 10px;
     }
 
@@ -42,44 +46,62 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
-        @media (max-width: $medium) {                                               //media
+        gap: 40px;
+
+        @media (max-width: $medium) {
+            //media------------------------------------------------------------------
             width: 100%;
         }
 
-        h1,
-        h3 {
+        h1 {
             color: var(--background);
         }
 
-        button {
+        h3 {
+            color: var(--background);
+            width: 60%;
+        }
+
+        a {
             h2 {
                 color: var(--focus);
+            }
+
+            svg {
+                font-size: 1.5rem;
             }
         }
     }
 
     .footer-info {
-        margin-top: 20px;
+        margin: 20px 0;
         display: flex;
         align-self: start;
         align-items: center;
         gap: 10px;
         color: var(--background);
 
-        @media (max-width: $medium) {                                               //media
+        //media------------------------------------------------------------------
+        @media (max-width: $medium) {
             flex-direction: column;
             align-self: center;
         }
 
         .icons {
             display: flex;
+
             svg {
                 font-size: 4rem;
-                @media (max-width: $large) {                                               //media
+
+                //media------------------------------------------------------------------
+                @media (max-width: $large) {
                     height: 2.5rem;
                 }
-        }
+            }
+
+            img {
+                height: 4rem;
+            }
         }
 
         .contact {
@@ -90,7 +112,9 @@
             height: 4rem;
             padding: 0 5px;
             gap: 5px;
-            @media (max-width: $large) {                                               //media
+
+            //media------------------------------------------------------------------
+            @media (max-width: $large) {
                 width: 100%;
                 justify-content: center;
                 height: 2.5rem;
@@ -98,8 +122,8 @@
             }
 
             svg {
-                height: 2.5rem;
-                
+                font-size: 2.5rem;
+
             }
 
             p {

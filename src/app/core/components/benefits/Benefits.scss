@@ -86,18 +86,23 @@
     }
 
     .slick-dots {
-        bottom: 0;
+        z-index: 11;
+        bottom: 5px;
+
         .slick-active {
             button::before {
-                color: var(--foreground);
+                color: var(--focus);
                 opacity: 1;
             }
         }
 
         li {
+            margin: 0 10px;
             button::before {
-                color: var(--foreground);
+                font-size: 1.5rem;
+                color: var(--focus);
                 opacity: .5;
+
             }
 
         }
