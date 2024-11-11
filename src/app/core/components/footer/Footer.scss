@@ -16,7 +16,8 @@
 
         img {
             height: calc(100% + 10vh);
-            width: 100%;
+            max-width: none;
+            width: 100vw;
             object-fit: cover;
         }
     }
