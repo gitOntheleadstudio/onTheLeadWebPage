@@ -21,7 +21,7 @@ export default function NavbarC(_: {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="logo">O<span>|</span>N</p>
+          <p className="logo text-background">O<span>|</span>N</p>
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
@@ -29,12 +29,12 @@ export default function NavbarC(_: {
           let ref = useRef<HTMLElement>(document.getElementById(e.url.replace("#", "")))
           return (
             <NavbarItem key={`nvItem${i}`} isActive={ref.current === null ? false : useOnScreen(ref)}>
-              <Link color="foreground" href={e.url} >{e.name}</Link>
+              <Link className="text-background" href={e.url} >{e.name}</Link>
             </NavbarItem>
           )
         })}
         <NavbarItem>
-          <Button as={Link} color="primary" href={buttonUrl} variant="flat">
+          <Button as={Link} className="text-background bg-focus" href={buttonUrl} variant="flat">
             {button}
           </Button>
         </NavbarItem>
